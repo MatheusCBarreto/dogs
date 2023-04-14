@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react';
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
+import { TOKEN_POST, TOKEN_VALIDATE_POST, GET_USER } from './api';
 import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext();
@@ -24,7 +24,7 @@ export const UserStorage = ({ children }) => {
   );
 
   async function getUser(token) {
-    const { url, options } = USER_GET(token);
+    const { url, options } = GET_USER(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
