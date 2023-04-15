@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -41,6 +43,7 @@ input {
 
 a {
   text-decoration: none;
+  color: #333;
 }
 
 .conteiner {
@@ -54,7 +57,23 @@ a {
   line-height: 1;
   font-size: 3rem;
   margin: 1rem 0;
+  position: relative;
+  z-index: 1;
 }
+
+.title::after {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fb1;
+  border-radius: 0.2rem;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  z-index: -1;
+}
+
 
 .animeLeft {
   opacity: 0;
