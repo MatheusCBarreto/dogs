@@ -66,12 +66,12 @@ a {
   display: block;
   width: 1.5rem;
   height: 1.5rem;
-  color: #ffbb11;
-  border-radius: 0.2rem;
   bottom: 5px;
   left: -5px;
-  z-index: -1;
+  color: #ffbb11;
+  border-radius: 0.2rem;
   position: absolute;
+  z-index: -1;
 }
 
 
