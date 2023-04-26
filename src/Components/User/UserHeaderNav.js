@@ -22,14 +22,16 @@ const UserHeaderNav = () => {
 
   return (
     <>
-      <button
-        aria-label="Menu"
-        onClick={() => {
-          setMobileMenu(!mobileMenu);
-        }}
-      >
-        \
-      </button>
+      {mobile && (
+        <button
+          aria-label="Menu"
+          onClick={() => {
+            setMobileMenu(!mobileMenu);
+          }}
+        >
+          \
+        </button>
+      )}
       <nav className={styles.nav}>
         <NavLink to="/conta" end>
           <MinhasFotos />
