@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../useContext';
 import { ReactComponent as MinhasFotos } from '../../Assets/feed.svg';
 import { ReactComponent as Estatisticas } from '../../Assets/estatisticas.svg';
@@ -9,11 +9,15 @@ import styles from './UserHeaderNav.module.css';
 import useMedia from '../../Hooks/useMedia';
 
 const UserHeaderNav = () => {
-  const [mobileMenu, setMobileMenu] = useState(false);
-
   const { userLogout } = useContext(UserContext);
   const mobile = useMedia('(max-width: 40rem)');
+  const [mobileMenu, setMobileMenu] = useState(false);
   const navegate = useNavigate();
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    setMobileMenu(false);
+  }, [pathname]);
 
   function handleLogout() {
     userLogout();
@@ -25,14 +29,19 @@ const UserHeaderNav = () => {
       {mobile && (
         <button
           aria-label="Menu"
+          className={`${styles.mobileButton} ${
+            mobileMenu && styles.mobileButtonActive
+          }`}
           onClick={() => {
             setMobileMenu(!mobileMenu);
           }}
-        >
-          \
-        </button>
+        ></button>
       )}
-      <nav className={styles.nav}>
+      <nav
+        className={`${mobile ? styles.mobileNav : styles.nav} ${
+          mobileMenu && styles.mobileNavActive
+        }`}
+      >
         <NavLink to="/conta" end>
           <MinhasFotos />
           {mobile && 'Minhas fotos'}
