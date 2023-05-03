@@ -12,6 +12,10 @@ const types = {
     massage:
       'A senha deve conter ao menos 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caracter especial.',
   },
+  number: {
+    regex: /^\d+$/,
+    massage: 'Utilize números apenas',
+  },
 };
 
 const useForm = (type) => {
