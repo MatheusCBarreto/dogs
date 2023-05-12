@@ -12,16 +12,19 @@ const PhotoContent = ({ data }) => {
         <img src={photo.src} alt={photo.title} />
       </div>
       <div className={styles.details}>
-        <Link to={'/perfil/${photo.author}'}>@{photo.author}</Link>
-        <span className={styles.vizualizacoes}>{photo.acessos}</span>
-
-        <h1 className="title">
-          <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
-        </h1>
-        <ul className={styles.attributes}>
-          <li>{photo.peso} kg</li>
-          <li>{photo.idade === 1 ? 'anos' : 'ano'} </li>
-        </ul>
+        <div>
+          <p className={styles.author}>
+            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            <span className={styles.vizualizacoes}>{photo.acessos}</span>
+          </p>
+          <h1 className="title">
+            <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
+          </h1>
+          <ul className={styles.attributes}>
+            <li>{photo.peso} kg</li>
+            <li>{photo.idade === 1 ? 'anos' : 'ano'} </li>
+          </ul>
+        </div>
       </div>
       <PhotoComments id={photo.id} comments={comments} />
     </div>
