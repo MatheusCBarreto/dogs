@@ -4,7 +4,7 @@ import useFetch from '../Hooks/useFetch';
 import Error from '../Components/Helper/Error';
 import { COMMENT_POST } from '../api';
 
-const PhotoCommentsForm = ({ id, setComment }) => {
+const PhotoCommentsForm = ({ id, setComments }) => {
   const [comment, setComment] = useState('');
   const { request, error } = useFetch();
 
@@ -15,7 +15,7 @@ const PhotoCommentsForm = ({ id, setComment }) => {
 
     if (response.ok) {
       setComment('');
-      setComment((comments) => [...comments, json]);
+      setComments((comments) => [...comments, json]);
     }
   }
 
