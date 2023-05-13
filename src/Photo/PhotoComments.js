@@ -4,7 +4,7 @@ import PhotoCommentsForm from './PhotoCommentsForm';
 import styles from './PhotoComments.module.css';
 
 const PhotoComments = (props) => {
-  const [comment, setComment] = useState('');
+  const [comment, setComments] = useState('');
   const { login } = useContext(UserContext);
 
   return (
@@ -17,7 +17,7 @@ const PhotoComments = (props) => {
           </li>
         ))}
       </ul>
-      {login && <PhotoCommentsForm id={props.id} setComment={setComment} />}
+      {login && <PhotoCommentsForm id={props.id} setComments={setComments} />}
     </>
   );
 };
