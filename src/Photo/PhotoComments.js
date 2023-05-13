@@ -1,10 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../UserContext';
 import PhotoCommentsForm from './PhotoCommentsForm';
+import styles from './PhotoComments.module.css';
 
 const PhotoComments = (props) => {
+  const [comment, setComment] = useState('');
   const { login } = useContext(UserContext);
-  return <div>{login && <PhotoCommentsForm id={props.id} />} </div>;
+
+  return (
+    <>
+      <ul className={styles.comments}>
+        {comment.map((comment) => (
+          <li key={comment.comment_ID}>
+            <b>{comment.comment_author}</b>
+            <span>{comment.comment_content}</span>
+          </li>
+        ))}
+      </ul>
+      {login && <PhotoCommentsForm id={props.id} setComment={setComment} />}
+    </>
+  );
 };
 
 export default PhotoComments;
