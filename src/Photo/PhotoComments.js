@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../useContext';
 import PhotoCommentsForm from './PhotoCommentsForm';
 import styles from './PhotoComments.module.css';
 
 const PhotoComments = (props) => {
   const [comment, setComments] = useState('');
-  const commentSection = useRef(null);
   const { login } = useContext(UserContext);
+
+  const commentSection = useRef(null);
 
   useEffect(() => {
     commentSection.current.scrollTop = commentSection.current.scrollHeight;
