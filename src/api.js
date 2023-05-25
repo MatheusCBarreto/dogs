@@ -85,7 +85,7 @@ export function PHOTO_GET({ id }) {
 
 export function COMMENT_POST(id, body) {
   return {
-    url: API_URL + '/api/comment',
+    url: API_URL + `/api/comment/${id}`,
     options: {
       method: 'POST',
       headers: {
@@ -93,6 +93,18 @@ export function COMMENT_POST(id, body) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PHOTO_DELETE(id) {
+  return {
+    url: API_URL + `/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
     },
   };
 }
