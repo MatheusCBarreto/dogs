@@ -14,10 +14,8 @@
   height: 80px;
   display: flex;
   padding-left: 5px;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
 }
-
-
